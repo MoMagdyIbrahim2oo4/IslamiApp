@@ -1,0 +1,32 @@
+import 'package:islamiapp/core/constants/AppAssets.dart';
+import 'package:islamiapp/data/model/on_boarding_info.dart';
+
+abstract class AppLogic {
+  static List<OnBoardingInfo> onboardinginfo = [
+    OnBoardingInfo(
+      image: AppAssets.onBoarding1,
+      description: "Welcome To Islmi App",
+    ),
+    OnBoardingInfo(
+      image: AppAssets.onBoarding2,
+      title: "Welcome To Islami",
+      description: "We Are Very Excited To Have You In Our Community",
+    ),
+    OnBoardingInfo(
+      image: AppAssets.onBoarding3,
+      title: "Reading the Quran",
+      description: "Read, and your Lord is the Most Generous",
+    ),
+    OnBoardingInfo(
+      image: AppAssets.onBoarding4,
+      title: "Bearish",
+      description: "Praise the name of your Lord, the Most High",
+    ),
+    OnBoardingInfo(
+      image: AppAssets.onBoarding5,
+      title: "Holy Quran Radio",
+      description:
+          "You can listen to the Holy Quran Radio through the application for free and easily",
+    ),
+  ];
+}
