@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/AppColors.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
+import 'package:islamiapp/core/utils/app_router.dart';
 import 'package:islamiapp/presentation/view/on_boarding_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
@@ -95,7 +96,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               currentIndex !=
                               AppLogic.onboardinginfo.length - 1,
                           replacement: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).pushReplacementNamed(
+                                AppRouter.mainLayOutScreen,
+                              );
+                            },
                             child: Text(
                               "Finish",
                               style: TextStyle(

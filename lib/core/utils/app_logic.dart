@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/data/model/on_boarding_info.dart';
+import 'package:islamiapp/data/model/tab_info.dart';
 
 abstract class AppLogic {
   static List<OnBoardingInfo> onboardinginfo = [
@@ -26,7 +28,29 @@ abstract class AppLogic {
       image: AppAssets.onBoarding5,
       title: "Holy Quran Radio",
       description:
-          "You can listen to the Holy Quran Radio through the application for free and easily",
+      "You can listen to the Holy Quran Radio through the application for free and easily",
     ),
+  ];
+  static List<TabInfo>tabs = [
+    TabInfo(label: "َQuran",
+        backgroundImage: AppAssets.quranBackground,
+        content: Container(),
+        iconPath: AppAssets.quranIcon),
+    TabInfo(label: "Hadeth",
+        backgroundImage: AppAssets.hadethBackground,
+        content: Container(),
+        iconPath: AppAssets.hadethIcon),
+    TabInfo(label: "Sebha",
+        backgroundImage: AppAssets.sebhaBackground,
+        content: Container(),
+        iconPath: AppAssets.sebhaIcon),
+    TabInfo(label: "Radio",
+        backgroundImage: AppAssets.radioBackground,
+        content: Container(),
+        iconPath: AppAssets.radioIcon),
+    TabInfo(label: "Time",
+        backgroundImage: AppAssets.timeBackground,
+        content: Container(),
+        iconPath: AppAssets.timeIcon)
   ];
 }
