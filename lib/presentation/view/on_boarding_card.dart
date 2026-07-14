@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamiapp/core/constants/AppColors.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class OnBoardingCard extends StatelessWidget {
   String image;
@@ -23,8 +23,13 @@ class OnBoardingCard extends StatelessWidget {
       replacement: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(image),
-          SizedBox(height: 2.15.h),
+          Container(
+            width: 372.15.w,
+            height: 338.8.h,
+            child: Image.asset(image),
+          ),
+          // SizedBox(height: 50.5.h),
+          Spacer(flex: 1,),
           Text(
             title ?? "",
             style: TextStyle(
@@ -33,12 +38,14 @@ class OnBoardingCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 2.18.h),
+          // SizedBox(height: 39.75.h),
+          Spacer(flex: 3,),
           Text(
             description,
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: Appcolors.gold,
-              fontSize: 15.sp,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -47,13 +54,18 @@ class OnBoardingCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(image),
-          SizedBox(height: 19.77.h),
+          Container(
+            width: 372.15.w,
+            height: 338.8.h,
+            child: Image.asset(image),
+          ),
+          // SizedBox(height: 85.33.h),
+          Spacer(flex: 2,),
           Text(
             description,
             style: TextStyle(
               color: Appcolors.gold,
-              fontSize: 20.sp,
+              fontSize: 24.sp,
               fontWeight: FontWeight.bold,
             ),
           ),

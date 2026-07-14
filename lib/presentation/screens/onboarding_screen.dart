@@ -3,8 +3,8 @@ import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/AppColors.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
 import 'package:islamiapp/presentation/view/on_boarding_card.dart';
-import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 
 class OnboardingScreen extends StatefulWidget {
   OnboardingScreen({super.key});
@@ -25,7 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.7.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
