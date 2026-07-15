@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/data/model/on_boarding_info.dart';
+import 'package:islamiapp/data/model/sura_item.dart';
 import 'package:islamiapp/data/model/tab_info.dart';
+import 'package:islamiapp/data/resources/quran_resources.dart';
+import 'package:islamiapp/presentation/screens/tabs/quran-tab.dart';
 
 abstract class AppLogic {
   static List<OnBoardingInfo> onboardinginfo = [
@@ -34,7 +37,7 @@ abstract class AppLogic {
   static List<TabInfo>tabs = [
     TabInfo(label: "َQuran",
         backgroundImage: AppAssets.quranBackground,
-        content: Container(),
+        content: QuranTab(),
         iconPath: AppAssets.quranIcon),
     TabInfo(label: "Hadeth",
         backgroundImage: AppAssets.hadethBackground,
@@ -53,4 +56,11 @@ abstract class AppLogic {
         content: Container(),
         iconPath: AppAssets.timeIcon)
   ];
+  static List<SuraItem>suraList = List.generate(114, (index) =>
+      SuraItem(arabicQuranSuras: QuranResources.arabicQuranSuras[index],
+          englishQuranSuras: QuranResources.englishQuranSuras[index],
+          AyaNumbers: QuranResources.AyaNumbers[index],
+          numberOfSura: (index + 1).toString()
+      )
+  );
 }
