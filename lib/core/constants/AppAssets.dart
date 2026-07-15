@@ -13,6 +13,7 @@ abstract class AppAssets {
   static const String sebhaBackground = "${rootPathImage}Sebha_Background.png";
   static const String radioBackground = "${rootPathImage}Radio_Background.png";
   static const String timeBackground = "${rootPathImage}Time_Background.png";
+  static const String mostRecentImage = "${rootPathImage}most_recent_image.png";
 
   //----------------------------icons--------------------------------------------
   static const String rootPathIcon = 'assets/icons/';
@@ -21,4 +22,5 @@ abstract class AppAssets {
   static const String sebhaIcon = "${rootPathIcon}ic_sebha.svg";
   static const String radioIcon = "${rootPathIcon}ic_radio.svg";
   static const String timeIcon = "${rootPathIcon}ic_time.svg";
+  static const String suraNumberIcon = "${rootPathIcon}sura_number_icon.svg";
 }

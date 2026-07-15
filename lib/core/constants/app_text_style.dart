@@ -23,5 +23,48 @@ abstract class AppTextStyle {
     color: Appcolors.gold,
     fontWeight: FontWeight.bold,
     fontSize: 16.sp,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold16White = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 16.sp,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold12White = TextStyle(
+    color: Colors.white,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold24Primary = TextStyle(
+    color: Appcolors.primary,
+    fontSize: 24.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold14Primary = TextStyle(
+    color: Appcolors.primary,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold20White = TextStyle(
+    color: Colors.white,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold14White = TextStyle(
+    color: Colors.white,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
   );
 }
