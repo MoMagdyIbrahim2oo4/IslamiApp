@@ -5,6 +5,7 @@ import 'package:islamiapp/data/model/sura_item.dart';
 import 'package:islamiapp/data/model/tab_info.dart';
 import 'package:islamiapp/data/resources/quran_resources.dart';
 import 'package:islamiapp/presentation/screens/tabs/quran-tab.dart';
+import 'package:islamiapp/presentation/screens/tabs/sebha_tab.dart';
 
 abstract class AppLogic {
   static List<OnBoardingInfo> onboardinginfo = [
@@ -45,7 +46,7 @@ abstract class AppLogic {
         iconPath: AppAssets.hadethIcon),
     TabInfo(label: "Sebha",
         backgroundImage: AppAssets.sebhaBackground,
-        content: Container(),
+        content: SebhaTab(),
         iconPath: AppAssets.sebhaIcon),
     TabInfo(label: "Radio",
         backgroundImage: AppAssets.radioBackground,

@@ -67,4 +67,11 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     fontFamily: "Janna LT",
   );
+
+  static final TextStyle bold36White = TextStyle(
+    color: Colors.white,
+    fontSize: 36.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
 }

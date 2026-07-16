@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
+import 'package:islamiapp/core/constants/AppColors.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
 
@@ -45,26 +46,31 @@ class _SuraScreenState extends State<SuraScreen> {
                   style: AppTextStyle.bold24Gold,
                 ),
                 SizedBox(height: 60.h),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      child: Text.rich(
-                        textAlign: TextAlign.center,
-                        textDirection: TextDirection.rtl,
-                        TextSpan(
-                          children: [
-                            for (int i = 0; i < suraVerses.length; i++) ...[
-                              TextSpan(
-                                text: suraVerses[i],
-                                style: AppTextStyle.bold20Gold,
-                              ),
-                              TextSpan(
-                                text: "[${i + 1}]",
-                                style: AppTextStyle.bold20Gold,
-                              ),
+                Visibility(
+                  visible: !suraVerses.isEmpty,
+                  replacement: CircularProgressIndicator(
+                    color: Appcolors.gold,),
+                  child: Expanded(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                        child: Text.rich(
+                          textAlign: TextAlign.center,
+                          textDirection: TextDirection.rtl,
+                          TextSpan(
+                            children: [
+                              for (int i = 0; i < suraVerses.length; i++) ...[
+                                TextSpan(
+                                  text: suraVerses[i],
+                                  style: AppTextStyle.bold20Gold,
+                                ),
+                                TextSpan(
+                                  text: "[${i + 1}]",
+                                  style: AppTextStyle.bold20Gold,
+                                ),
+                              ],
                             ],
-                          ],
+                          ),
                         ),
                       ),
                     ),
