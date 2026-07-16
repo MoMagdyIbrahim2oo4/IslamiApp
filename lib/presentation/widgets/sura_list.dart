@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
+import 'package:islamiapp/core/utils/app_router.dart';
 
 class SuraList extends StatelessWidget {
   const SuraList({super.key});
@@ -12,7 +13,10 @@ class SuraList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       itemBuilder: (context, index) => InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed(
+              AppRouter.suraScreen, arguments: index);
+        },
         child: Sura(
           suraNumber: AppLogic.suraList[index].numberOfSura,
           english: AppLogic.suraList[index].englishQuranSuras,
