@@ -21,7 +21,7 @@ class SebhaTab extends StatelessWidget {
             style: AppTextStyle.bold36White,
           ),
         ),
-        Sebha(),
+        Center(child: Sebha()),
       ],
     );
   }

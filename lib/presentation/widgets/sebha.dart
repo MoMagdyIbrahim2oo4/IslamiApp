@@ -23,15 +23,25 @@ class _SebhaState extends State<Sebha> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset(AppAssets.sebha),
+          SizedBox(
+            width: 379.w,
+            height: 460.h,
+            child: Image.asset(AppAssets.sebha),
+          ),
           Column(
             children: [
+              SizedBox(height: 60.h,),
               Text(
                 TasabihResourses.tasabihList[index],
                 style: AppTextStyle.bold36White,
+                textAlign: TextAlign.center,
+                textDirection: TextDirection.rtl,
               ),
               SizedBox(height: 50.h),
-              Text(counter.toString(), style: AppTextStyle.bold36White),
+              Text(
+                counter.toString(),
+                style: AppTextStyle.bold36White,
+              ),
             ],
           ),
         ],
