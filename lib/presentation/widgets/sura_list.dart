@@ -7,18 +7,22 @@ import 'package:islamiapp/core/providers/most_recent_provider.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
 import 'package:islamiapp/core/utils/app_router.dart';
 import 'package:islamiapp/core/utils/shared_pref.dart';
+import 'package:islamiapp/data/model/sura_item.dart';
 import 'package:provider/provider.dart';
 
 class SuraList extends StatelessWidget {
-  SuraList({super.key});
+  List<SuraItem> filteredList;
+
+  SuraList({super.key, required this.filteredList});
 
   late MostRecentProvider mostRecentProvider;
 
-  @@override
+  @override
   Widget build(BuildContext context) {
     mostRecentProvider = Provider.of(context, listen: false);
-    return ListView.separated(
-      itemBuilder: (context, index) => InkWell(
+    return filteredList.isNotEmpty
+        ? ListView.separated(
+            itemBuilder: (context, index) => InkWell(
         onTap: () async {
           await SharedPref.saveMostRecent(index);
           Navigator.of(context).pushNamed(
@@ -27,11 +31,11 @@ class SuraList extends StatelessWidget {
           });
         },
         child: Sura(
-          suraNumber: AppLogic.suraList[index].numberOfSura,
-          english: AppLogic.suraList[index].englishQuranSuras,
-          verses: AppLogic.suraList[index].AyaNumbers,
-          arabic: AppLogic.suraList[index].arabicQuranSuras,
-        ),
+                suraNumber: filteredList[index].numberOfSura,
+                english: filteredList[index].englishQuranSuras,
+                verses: filteredList[index].AyaNumbers,
+                arabic: filteredList[index].arabicQuranSuras,
+              ),
       ),
       separatorBuilder: ((context, index) => Divider(
         color: Colors.white,
@@ -40,8 +44,9 @@ class SuraList extends StatelessWidget {
         indent: 60.w,
         endIndent: 60.w,
       )),
-      itemCount: AppLogic.suraList.length,
-    );
+            itemCount: filteredList.length,
+          )
+        : Text("There is no result", style: AppTextStyle.bold16White);
   }
 }
 

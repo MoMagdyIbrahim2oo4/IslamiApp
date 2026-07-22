@@ -3,7 +3,9 @@ import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
 import 'package:islamiapp/core/providers/most_recent_provider.dart';
+import 'package:islamiapp/core/utils/app_logic.dart';
 import 'package:islamiapp/core/utils/shared_pref.dart';
+import 'package:islamiapp/data/model/sura_item.dart';
 import 'package:islamiapp/presentation/widgets/most_recently.dart';
 import 'package:islamiapp/presentation/widgets/quran_text_field.dart';
 import 'package:islamiapp/presentation/widgets/sura_list.dart';
@@ -18,6 +20,7 @@ class QuranTab extends StatefulWidget {
 
 class _QuranTabState extends State<QuranTab> {
   late MostRecentProvider mostRecentProvider;
+  List<SuraItem> filteredList = [];
 
   @override
   void initState() {
@@ -26,6 +29,19 @@ class _QuranTabState extends State<QuranTab> {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => mostRecentProvider.loadMostRecent(),
     );
+    filteredList = AppLogic.suraList;
+  }
+
+  onChanged(String text) {
+    filteredList = AppLogic.suraList.where((sura) {
+      return sura.arabicQuranSuras.contains(text) ||
+          sura.englishQuranSuras.contains(text);
+    }).toList();
+    setState(() {
+
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     mostRecentProvider = Provider.of(context, listen: true);
@@ -37,13 +53,14 @@ class _QuranTabState extends State<QuranTab> {
           spacing: 10.h,
           children: [
             Center(child: Image.asset(AppAssets.islamiOnBoarding)),
-            QuranTextField(),
+            QuranTextField(onchanged: onChanged,),
             Text("Most Recently", style: AppTextStyle.bold16White),
-            MostRecently(suras: mostRecentProvider.mostRecent,),
+            MostRecently(suras: mostRecentProvider.mostRecent),
             Text("Suras List", style: AppTextStyle.bold16White),
             SizedBox(
               height: 500.h,
-              child: Expanded(child: SuraList()),
+              child: Expanded(
+                  child: Center(child: SuraList(filteredList: filteredList,))),
             ),
           ],
         ),
