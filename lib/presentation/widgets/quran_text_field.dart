@@ -6,11 +6,14 @@ import 'package:islamiapp/core/constants/AppColors.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
 
 class QuranTextField extends StatelessWidget {
-  const QuranTextField({super.key});
+  Function(String) onchanged;
+
+  QuranTextField({super.key, required this.onchanged});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onchanged,
       style: AppTextStyle.bold16White,
       decoration: InputDecoration(
         hintText: "Sura Name",
