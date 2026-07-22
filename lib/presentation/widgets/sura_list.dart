@@ -3,19 +3,28 @@ import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
+import 'package:islamiapp/core/providers/most_recent_provider.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
 import 'package:islamiapp/core/utils/app_router.dart';
+import 'package:islamiapp/core/utils/shared_pref.dart';
+import 'package:provider/provider.dart';
 
 class SuraList extends StatelessWidget {
-  const SuraList({super.key});
+  SuraList({super.key});
 
-  @override
+  late MostRecentProvider mostRecentProvider;
+
+  @@override
   Widget build(BuildContext context) {
+    mostRecentProvider = Provider.of(context, listen: false);
     return ListView.separated(
       itemBuilder: (context, index) => InkWell(
-        onTap: () {
+        onTap: () async {
+          await SharedPref.saveMostRecent(index);
           Navigator.of(context).pushNamed(
-              AppRouter.suraScreen, arguments: index);
+              AppRouter.suraScreen, arguments: index).then((value) {
+            mostRecentProvider.loadMostRecent();
+          });
         },
         child: Sura(
           suraNumber: AppLogic.suraList[index].numberOfSura,

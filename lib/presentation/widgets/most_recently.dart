@@ -4,6 +4,7 @@ import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/AppColors.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
+import 'package:islamiapp/core/utils/shared_pref.dart';
 
 class MostRecently extends StatelessWidget {
   List<int> suras;
@@ -17,9 +18,9 @@ class MostRecently extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => RecentSura(
-          arabicName: AppLogic.suraList[index].arabicQuranSuras,
-          englishName: AppLogic.suraList[index].englishQuranSuras,
-          verses: AppLogic.suraList[index].AyaNumbers,
+          arabicName: AppLogic.suraList[suras[index]].arabicQuranSuras,
+          englishName: AppLogic.suraList[suras[index]].englishQuranSuras,
+          verses: AppLogic.suraList[suras[index]].AyaNumbers,
         ),
         separatorBuilder: (context, index) => SizedBox(width: 10.w),
         itemCount: suras.length,

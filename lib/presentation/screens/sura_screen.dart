@@ -36,7 +36,7 @@ class _SuraScreenState extends State<SuraScreen> {
       ),
       body: Stack(
         children: [
-          Image.asset(AppAssets.suraBackground),
+          Image.asset(AppAssets.suraBackground, fit: BoxFit.cover,),
           Center(
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.center,
