@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
+import 'package:islamiapp/data/model/hadeth_item.dart';
 import 'package:islamiapp/data/model/on_boarding_info.dart';
 import 'package:islamiapp/data/model/sura_item.dart';
 import 'package:islamiapp/data/model/tab_info.dart';
 import 'package:islamiapp/data/resources/quran_resources.dart';
+import 'package:islamiapp/presentation/screens/tabs/hadeth_tab.dart';
 import 'package:islamiapp/presentation/screens/tabs/quran-tab.dart';
 import 'package:islamiapp/presentation/screens/tabs/sebha_tab.dart';
 
@@ -42,7 +45,7 @@ abstract class AppLogic {
         iconPath: AppAssets.quranIcon),
     TabInfo(label: "Hadeth",
         backgroundImage: AppAssets.hadethBackground,
-        content: Container(),
+        content: HadethTab(),
         iconPath: AppAssets.hadethIcon),
     TabInfo(label: "Sebha",
         backgroundImage: AppAssets.sebhaBackground,

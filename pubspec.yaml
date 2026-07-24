@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^2.3.0
   shared_preferences: 2.2.3
   provider: ^6.1.5+1
+  carousel_slider: ^5.1.2
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/files/Suras/
+    - assets/files/Hadeeth/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
