@@ -4,7 +4,6 @@ import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
 import 'package:islamiapp/core/providers/most_recent_provider.dart';
 import 'package:islamiapp/core/utils/app_logic.dart';
-import 'package:islamiapp/core/utils/shared_pref.dart';
 import 'package:islamiapp/data/model/sura_item.dart';
 import 'package:islamiapp/presentation/widgets/most_recently.dart';
 import 'package:islamiapp/presentation/widgets/quran_text_field.dart';
@@ -58,7 +57,7 @@ class _QuranTabState extends State<QuranTab> {
             MostRecently(suras: mostRecentProvider.mostRecent),
             Text("Suras List", style: AppTextStyle.bold16White),
             SizedBox(
-              height: 500.h,
+              height: 280.h,
               child: Expanded(
                   child: Center(child: SuraList(filteredList: filteredList,))),
             ),

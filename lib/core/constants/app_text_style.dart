@@ -74,4 +74,18 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     fontFamily: "Janna LT",
   );
+
+  static final TextStyle bold20Primary = TextStyle(
+    color: Appcolors.primary,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
+
+  static final TextStyle bold16Primary = TextStyle(
+    color: Appcolors.primary,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Janna LT",
+  );
 }

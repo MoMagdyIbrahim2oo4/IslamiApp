@@ -16,6 +16,8 @@ abstract class AppAssets {
   static const String mostRecentImage = "${rootPathImage}most_recent_image.png";
   static const String suraBackground = "${rootPathImage}sura_background.png";
   static const String sebha = "${rootPathImage}Sebha.png";
+  static const String hadethCardBackground =
+      "${rootPathImage}hadeth_card_background.png";
 
   //----------------------------icons--------------------------------------------
   static const String rootPathIcon = 'assets/icons/';
