@@ -30,7 +30,7 @@ class _SebhaState extends State<Sebha> {
           ),
           Column(
             children: [
-              SizedBox(height: 60.h,),
+              SizedBox(height: 60.h),
               Text(
                 TasabihResourses.tasabihList[index],
                 style: AppTextStyle.bold36White,
@@ -38,10 +38,7 @@ class _SebhaState extends State<Sebha> {
                 textDirection: TextDirection.rtl,
               ),
               SizedBox(height: 50.h),
-              Text(
-                counter.toString(),
-                style: AppTextStyle.bold36White,
-              ),
+              Text(counter.toString(), style: AppTextStyle.bold36White),
             ],
           ),
         ],

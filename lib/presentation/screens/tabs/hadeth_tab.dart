@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamiapp/core/constants/AppAssets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:islamiapp/core/utils/app_logic.dart';
+import 'package:islamiapp/core/utils/app_router.dart';
 import 'package:islamiapp/presentation/view/hadeth_card.dart';
 
 class HadethTab extends StatefulWidget {
@@ -20,16 +22,6 @@ class _HadethTabState extends State<HadethTab> {
 
   int currentIndex = 0;
 
-  Future<Map<String, String>> loadHadeth(int index) async {
-    final hadethContent = await rootBundle.loadString(
-        "assets/files/Hadeeth/h${index + 1}.txt");
-    List<String>hadethList = hadethContent.trim().split("\n");
-    String hadethTitle = hadethList.isNotEmpty ? hadethList[0] : "";
-    String hadeth = hadethList.length > 1
-        ? hadethList.sublist(1).join("\n")
-        : "";
-    return {"title": hadethTitle, "hadeth": hadeth};
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +37,7 @@ class _HadethTabState extends State<HadethTab> {
             itemBuilder: (BuildContext context, int itemIndex,
                 int pageViewIndex) {
               return FutureBuilder(
-                  future: loadHadeth(itemIndex),
+                  future: AppLogic.loadHadeth(itemIndex),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return CircularProgressIndicator();
@@ -55,14 +47,20 @@ class _HadethTabState extends State<HadethTab> {
                           hadethTitle: "خطأ", hadeth: "تعذر تحميل الحديث");
                     }
                     final hadethData = snapshot.data!;
-                    return HadethCard(hadethTitle: hadethData["title"]!,
-                        hadeth: hadethData["hadeth"]!);
+                    return InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                            AppRouter.hadethScreen, arguments: itemIndex);
+                      },
+                      child: HadethCard(hadethTitle: hadethData["title"]!,
+                          hadeth: hadethData["hadeth"]!),
+                    );
                   }
               );
             },
             options: CarouselOptions(
                 height: 550.h,
-                // autoPlay: true,
+                autoPlay: true,
                 onPageChanged: (index, reason) {
                   currentIndex = index;
                 },
