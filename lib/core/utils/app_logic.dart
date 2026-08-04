@@ -8,6 +8,7 @@ import 'package:islamiapp/data/model/tab_info.dart';
 import 'package:islamiapp/data/resources/quran_resources.dart';
 import 'package:islamiapp/presentation/screens/tabs/hadeth_tab.dart';
 import 'package:islamiapp/presentation/screens/tabs/quran-tab.dart';
+import 'package:islamiapp/presentation/screens/tabs/radio_tab.dart';
 import 'package:islamiapp/presentation/screens/tabs/sebha_tab.dart';
 
 abstract class AppLogic {
@@ -53,7 +54,7 @@ abstract class AppLogic {
         iconPath: AppAssets.sebhaIcon),
     TabInfo(label: "Radio",
         backgroundImage: AppAssets.radioBackground,
-        content: Container(),
+        content: RadioTab(),
         iconPath: AppAssets.radioIcon),
     TabInfo(label: "Time",
         backgroundImage: AppAssets.timeBackground,

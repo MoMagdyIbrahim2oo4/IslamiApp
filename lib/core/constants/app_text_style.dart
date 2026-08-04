@@ -88,4 +88,11 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
     fontFamily: "Janna LT",
   );
+
+  static final TextStyle Regular16White = TextStyle(
+    color: Appcolors.white,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Janna LT",
+  );
 }
