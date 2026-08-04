@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamiapp/core/constants/AppColors.dart';
 import 'package:islamiapp/core/providers/most_recent_provider.dart';
 import 'package:islamiapp/core/utils/app_router.dart';
+import 'package:islamiapp/presentation/screens/hadeth_screen.dart';
 import 'package:islamiapp/presentation/screens/main_layout_screen.dart';
 import 'package:islamiapp/presentation/screens/onboarding_screen.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
             AppRouter.onboardingScreen: (context) => OnboardingScreen(),
             AppRouter.mainLayOutScreen: (context) => MainLayoutScreen(),
             AppRouter.suraScreen: (context) => SuraScreen(),
+            AppRouter.hadethScreen: (context) => HadethScreen(),
           },
           theme: ThemeData(
             scaffoldBackgroundColor: Appcolors.primary,

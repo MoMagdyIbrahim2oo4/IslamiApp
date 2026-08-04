@@ -67,4 +67,15 @@ abstract class AppLogic {
           numberOfSura: (index + 1).toString()
       )
   );
+
+  static Future<Map<String, String>> loadHadeth(int index) async {
+    final hadethContent = await rootBundle.loadString(
+        "assets/files/Hadeeth/h${index + 1}.txt");
+    List<String>hadethList = hadethContent.trim().split("\n");
+    String hadethTitle = hadethList.isNotEmpty ? hadethList[0] : "";
+    String hadeth = hadethList.length > 1
+        ? hadethList.sublist(1).join("\n")
+        : "";
+    return {"title": hadethTitle, "hadeth": hadeth};
+  }
 }

@@ -32,6 +32,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
         destinations: List.generate(
           5,
           (index) => NavigationDestination(
+            tooltip: "",
             icon: SvgPicture.asset(
               AppLogic.tabs[index].iconPath,
               colorFilter: ColorFilter.mode(Appcolors.primary, BlendMode.srcIn),

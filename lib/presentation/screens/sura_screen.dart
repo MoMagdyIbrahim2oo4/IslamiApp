@@ -33,6 +33,7 @@ class _SuraScreenState extends State<SuraScreen> {
           AppLogic.suraList[index].englishQuranSuras,
           style: AppTextStyle.bold20Gold,
         ),
+        scrolledUnderElevation: 0,
       ),
       body: Stack(
         children: [
@@ -62,7 +63,8 @@ class _SuraScreenState extends State<SuraScreen> {
                               for (int i = 0; i < suraVerses.length; i++) ...[
                                 TextSpan(
                                   text: suraVerses[i],
-                                  style: AppTextStyle.bold20Gold,
+                                  style: AppTextStyle.bold20Gold.copyWith(
+                                      height: 3.h),
                                 ),
                                 TextSpan(
                                   text: "[${i + 1}]",
