@@ -11,7 +11,7 @@ class SebhaTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      // crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 16.h,
       children: [
         Center(child: Image.asset(AppAssets.islamiOnBoarding)),
@@ -21,7 +21,7 @@ class SebhaTab extends StatelessWidget {
             style: AppTextStyle.bold36White,
           ),
         ),
-        Center(child: Sebha()),
+        Expanded(child: Sebha()),
       ],
     );
   }

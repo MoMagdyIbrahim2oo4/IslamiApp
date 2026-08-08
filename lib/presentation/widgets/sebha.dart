@@ -15,31 +15,51 @@ class Sebha extends StatefulWidget {
 class _SebhaState extends State<Sebha> {
   int counter = 0;
   int index = 0;
+  double turns = 0;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    final width = MediaQuery
+        .of(context)
+        .size
+        .width;
     return InkWell(
       onTap: onTasbihclick,
       child: Stack(
-        alignment: Alignment.center,
+        alignment: Alignment.topCenter,
         children: [
-          SizedBox(
-            width: 379.w,
-            height: 460.h,
-            child: Image.asset(AppAssets.sebha),
-          ),
-          Column(
-            children: [
-              SizedBox(height: 60.h),
-              Text(
-                TasabihResourses.tasabihList[index],
-                style: AppTextStyle.bold36White,
-                textAlign: TextAlign.center,
-                textDirection: TextDirection.rtl,
-              ),
-              SizedBox(height: 50.h),
-              Text(counter.toString(), style: AppTextStyle.bold36White),
-            ],
+          Row(),
+          Image.asset(AppAssets.sebhaHead, height: height * 0.1),
+          Positioned.fill(
+            top: height * 0.08,
+            child: Stack(
+              children: [
+                AnimatedRotation(
+                    turns: turns, duration: Duration(milliseconds: 200),
+                    child: Image.asset(
+                        AppAssets.sebhaBody, width: double.infinity)),
+                Column(
+                  mainAxisAlignment: .center,
+                  // crossAxisAlignment: .center,
+                  children: [
+                    Row(),
+                    SizedBox(height: 60.h),
+                    Text(
+                      TasabihResourses.tasabihList[index],
+                      style: AppTextStyle.bold36White,
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                    ),
+                    SizedBox(height: 50.h),
+                    Text(counter.toString(), style: AppTextStyle.bold36White),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -48,6 +68,7 @@ class _SebhaState extends State<Sebha> {
 
   onTasbihclick() {
     setState(() {
+      turns += 0.030;
       if (counter == 32) {
         counter = 0;
         index = (index + 1) % TasabihResourses.tasabihList.length;

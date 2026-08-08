@@ -17,6 +17,8 @@ abstract class AppAssets {
       "${_rootPathImage}most_recent_image.png";
   static const String suraBackground = "${_rootPathImage}sura_background.png";
   static const String sebha = "${_rootPathImage}Sebha.png";
+  static const String sebhaHead = "${_rootPathImage}sebha_head.png";
+  static const String sebhaBody = "${_rootPathImage}sebha_body.png";
   static const String radioMaskOn = "${_rootPathImage}radio_mask_on.png";
   static const String radioMaskOff = "${_rootPathImage}radio_mask_off.png";
   static const String hadethCardBackground =
