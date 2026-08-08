@@ -2,6 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
   static const String mostRecentKey = 'MostRecnt';
+  static const String seenKey = 'Seen';
 
   static Future<void> saveMostRecent(int index) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -23,5 +24,15 @@ class SharedPref {
         .map((element) => int.parse(element))
         .toList();
     return mostRecentAsInt.toList();
+  }
+
+  static Future<void> setSeen() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool(seenKey, true);
+  }
+
+  static Future<bool> getSeen() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(seenKey) ?? false;
   }
 }
