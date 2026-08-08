@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil_plus/flutter_screenutil_plus.dart';
 import 'package:islamiapp/core/constants/app_text_style.dart';
+import 'package:islamiapp/core/utils/shared_pref.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../core/constants/AppColors.dart';
@@ -72,6 +73,7 @@ class _OnboardingBottomBarState extends State<OnboardingBottomBar> {
                   duration: Duration(milliseconds: 400),
                   curve: Curves.easeInOut,
                 );
+                SharedPref.setSeen();
               },
               child: Text("Next", style: AppTextStyle.bold16Gold),
             ),
